@@ -1,0 +1,25 @@
+﻿import {DataType} from "./type.ts";
+
+export const dataSample: DataType[] = [
+    { Id: 1, WorkId: 1,  ParentId: null, Type: 2, Title: '0-0',     Ord: 1, Level: 1 },
+    { Id: 4, WorkId: 1, ParentId: 1,    Type: 2, Title: '0-0-0',   Ord: 1, Level: 2 },
+    { Id: 7, WorkId: 1, ParentId: 4,    Type: 1, Title: '0-0-0-0', Ord: 1, Level: 3 },
+    { Id: 8, WorkId: 1, ParentId: 4,    Type: 1, Title: '0-0-0-1', Ord: 2, Level: 3 },
+    { Id: 9, WorkId: 1, ParentId: 4,    Type: 1, Title: '0-0-0-2', Ord: 3, Level: 3 },
+    { Id: 5, WorkId: 1, ParentId: 1,    Type: 2, Title: '0-0-1',   Ord: 2, Level: 2 },
+    { Id: 10, WorkId: 1, ParentId: 5,    Type: 1, Title: '0-0-1-0', Ord: 1, Level: 3 },
+    { Id: 11, WorkId: 1, ParentId: 5,    Type: 1, Title: '0-0-1-1', Ord: 2, Level: 3 },
+    { Id: 12, WorkId: 1, ParentId: 5,    Type: 1, Title: '0-0-1-2', Ord: 3, Level: 3 },
+    { Id: 6, WorkId: 1, ParentId: 1,    Type: 1, Title: '0-0-2',   Ord: 3, Level: 2 },
+    { Id: 2, WorkId: 1, ParentId: null, Type: 2, Title: '0-1',     Ord: 2, Level: 1 },
+    { Id: 13, WorkId: 1, ParentId: 2,    Type: 2, Title: '0-1-0',   Ord: 1, Level: 2 },
+    { Id: 16, WorkId: 1, ParentId: 13,   Type: 1, Title: '0-1-0-0', Ord: 1, Level: 3 },
+    { Id: 17, WorkId: 1, ParentId: 13,   Type: 1, Title: '0-1-0-1', Ord: 2, Level: 3 },
+    { Id: 18, WorkId: 1, ParentId: 13,   Type: 1, Title: '0-1-0-2', Ord: 3, Level: 3 },
+    { Id: 14, WorkId: 1, ParentId: 2,    Type: 2, Title: '0-1-1',   Ord: 2, Level: 2 },
+    { Id: 19, WorkId: 1, ParentId: 14,   Type: 1, Title: '0-1-1-0', Ord: 1, Level: 3 },
+    { Id: 20, WorkId: 1, ParentId: 14,   Type: 1, Title: '0-1-1-1', Ord: 2, Level: 3 },
+    { Id: 21, WorkId: 1, ParentId: 14,   Type: 1, Title: '0-1-1-2', Ord: 3, Level: 3 },
+    { Id: 15, WorkId: 1, ParentId: 2,    Type: 1, Title: '0-1-2',   Ord: 3, Level: 2 },
+    { Id: 3, WorkId: 1, ParentId: null, Type: 1, Title: '0-2',     Ord: 3, Level: 1 },
+];
