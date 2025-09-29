@@ -120,7 +120,7 @@ const DragAndDrop = () => {
     let dragObj: TreeItemType | undefined;
     loop(data, dragKey, (_item, index, arr) => {
       const removed = arr.splice(index, 1);
-      dragObj = removed[0]; // TreeItemType | undefined
+      dragObj = removed[0];
     });
     if (!dragObj) {
       console.warn("Drag node not found – ignoring drop.");
@@ -132,26 +132,25 @@ const DragAndDrop = () => {
     //insert
     if (!info.dropToGap) {
       if (sameParent) {
-        // center + same parent => REORDER (insert before the target)
+        // center + same parent 
         loop(data, dropKey, (_target, targetIdx, targetArr) => {
           targetArr.splice(targetIdx, 0, dragged);
         });
       } else {
-        // center + different parent => make first child (default behavior)
+        // center + different parent 
         loop(data, dropKey, (target) => {
           target.children = target.children || [];
           target.children.unshift(dragged);
         });
       }
     } else {
-      // GAP => before/after among siblings
+      // before/after among siblings
       loop(data, dropKey, (_target, targetIdx, targetArr) => {
         const insertAt = dropPosition === -1 ? targetIdx : targetIdx + 1;
         targetArr.splice(insertAt, 0, dragged);
       });
     }
 
-    // metadata
     let parent_id: number | null = null;
     let after_id: number | null = null;
 
@@ -198,9 +197,9 @@ const DragAndDrop = () => {
       const newId = nextId();
       const newNode: TreeItemType = {
         id: newId,
-        key: `zone-${newId}`,   // unique per insert
+        key: `zone-${newId}`,   
         title: dragged.name,
-        level: 1,               // normalized below
+        level: 1,              
         children: [],
       };
 
