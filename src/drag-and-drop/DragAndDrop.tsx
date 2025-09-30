@@ -194,34 +194,40 @@ const DragAndDrop = () => {
           }));
       const data = cloneTree(prev);
 
-      const newId = nextId();
-      const newNode: TreeItemType = {
-        id: newId,
-        key: `zone-${newId}`,   
-        title: dragged.name,
-        level: 1,              
-        children: [],
-      };
-
       if (dropResult) {
         const loc = findLoc(data, dropResult.id);
-        if (loc) {
-          const kids = loc.node.children ?? [];
-          const alreadyExists = kids.some((c) => c.title === dragged.name);
-          if (!alreadyExists) {
-            loc.node.children = [...kids, newNode];
-          }
-        }
+        if (!loc) return prev;
+
+        const kids = loc.node.children ?? [];
+        const alreadyExists = kids.some(c => c.title === dragged.name);
+        if (alreadyExists) return prev;                
+
+        const newId = nextId();                         
+        const newNode: TreeItemType = {
+          id: newId,
+          key: `zone-${newId}`,
+          title: dragged.name,
+          level: 1,                                     
+          children: [],
+        };
+        loc.node.children = [...kids, newNode];         
       } else {
-        // root insert
-        const alreadyExists = data.some((c) => c.id === dragged.id);
-        if (!alreadyExists) {
-          data.push(newNode);
-        }
+        const rootExists = data.some(c => c.title === dragged.name);
+        if (rootExists) return prev;                    
+
+        const newId = nextId();                         
+        const newNode: TreeItemType = {
+          id: newId,
+          key: `zone-${newId}`,
+          title: dragged.name,
+          level: 1,
+          children: [],
+        };
+        data.push(newNode);
       }
 
-      setLevels(data, 0);       
-      return data;               
+      setLevels(data, 0);
+      return data;                                     
     });
   };
 
